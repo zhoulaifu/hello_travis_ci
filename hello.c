@@ -8,8 +8,7 @@ void foo(double x){
   return;
 }
 int main(){
-  double x = 2.9e200;
-  //x=3.5;
+  double x=3.5;
   foo(x);
   return 0;
 }

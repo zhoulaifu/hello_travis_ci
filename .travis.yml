@@ -1,3 +1,12 @@
 language: C
 
-script: make
+services:
+  - docker
+
+before_install:
+  - docker pull ros:foxy
+  - docker run -it ros:foxy
+
+script:
+  - ls
+  - make
