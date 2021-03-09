@@ -2,6 +2,7 @@ language: C
 services:
 - docker
 before_install:
+- echo "BEFORE-INSTALL"
 - echo ${mytoken}
 - docker build  -t "test01" .
 script:
