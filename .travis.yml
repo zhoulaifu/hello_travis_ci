@@ -5,7 +5,7 @@ services:
 
 before_install:
 
-  -  docker build --build-arg -t "test01" .
+  -  docker build  -t "test01" .
 
 
 script:
