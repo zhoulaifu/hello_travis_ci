@@ -6,6 +6,8 @@ before_install:
 script:
 - pwd
 - echo ${TOKEN}
+- docker run ${IMAGE} pwd
+- docker run ${IMAGE} ls /opt/teex
 env:
   jobs:
   - IMAGE=test01
