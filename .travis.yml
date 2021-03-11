@@ -2,15 +2,15 @@ language: C
 services:
 - docker
 before_install:
-- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
-
+#- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
+- TOKEN=$TOKEN make build_docker
 script:
 
 - echo "Shaping"
-- echo "21h05"
+- echo "21h55"
 #-  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 #   /bin/bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
-- make shaping
+-  make shaping
 
 
 
