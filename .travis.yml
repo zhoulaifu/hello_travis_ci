@@ -8,9 +8,9 @@ script:
 
 - echo "Shaping"
 - echo "21h05"
--  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-   /bin/bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
-
+#-  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+#   /bin/bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
+- make shaping
 
 
 
