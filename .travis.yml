@@ -1,18 +1,22 @@
 language: C
-#services:
-#- docker
-#before_install:
-#- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
+services:
+- docker
+before_install:
+- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
 
 script:
 
 #- docker run ${IMAGE} pwd
 #- docker run ${IMAGE} ls /opt/teex
-#- docker run --mount type=bind,source=${PWD},target=${MOUNT} \
-#        -it ${IMAGE} /opt/teex/shaping/main_tool < hello.c
-- echo "Hello 16h36"
-- make
-- touch newfile.txt
+- echo "Shaping"
+- echo ${MOUNT}
+- echo ${TOKEN}
+- echo ${IMAGE}
+#-  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+#   bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
+
+
+
 
 deploy:
   provider: pages
@@ -25,5 +29,6 @@ deploy:
 env:
   jobs:
   - IMAGE=test01
+  - MOUNT=/mnt/local
   global:
     secure: Bhc+OQOmXqfogtdP60LSq+RPBi5RmAlDL1VS8oNgwJiptIDF5UmBkEqzxjrdTWhqnS4ah6QRb8ErLh+OTfhR9o3j2blv8O+QIKkR9z0Eg36sxpebTx117TDIuPejcCp8v4+5kcGml2FVwd696qpZ1qgzidPGQkK4hfh7Eg9ZJra55StAa7cCl72DscaHeMtczaPxU2ZRugGdexKXSgP/sPK6/esGQBF4gie1UrUNhm1ibxQItF8PknP2Kvri60r2DpW+px4He6P6Jwr/0yGye8CGA2NWMXfqhjSXdNMOmiL9ncvWVkCS8wetBRVKmdTpAHiMT/otQI4l2zcAgTafW0XuO10xxVSpZwcxAgvgfXZmLFrL+MBspOzouNeRgTQIeGYbBtGp4EFaFTqaAM+j+812U+glitq5T3E+DrrPY63cweOOTqSiHAVyJ0d4ZBSh6ZQ22Ypmvbb0IjxhrBK14AJjgOYzzQ5yanMHyarVEqRXQMhkIPJLcAhDcCGPgMTFWXNafjN6QeMwl5MeS/djLmdtryY3B+u0ZLRs1Q6AMxfoi+Zw0oHvu/mU2QKguZsgDUrrrSWvm/xYpiNT51uYAxrv+5C7B2mN+y5Rr2AdKlL0nE68Epo1WWjX1DYr+Zo80jFR3OhvVqccIcJGstBl7c85Xb3T2vLdd8Ho68F8ur8=
