@@ -6,15 +6,10 @@ before_install:
 
 script:
 
-#- docker run ${IMAGE} pwd
-#- docker run ${IMAGE} ls /opt/teex
 - echo "Shaping"
-- echo "19h10"
-- echo ${MOUNT}
-- echo ${TOKEN}
-- echo ${IMAGE}
-#-  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-#   bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
+- echo "21h05"
+-  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+   bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
 
 
 
