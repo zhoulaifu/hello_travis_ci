@@ -1,18 +1,19 @@
 language: C
-#services:
-#- docker
-#before_install:
-#- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
+services:
+- docker
+before_install:
+- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
 
 script:
 
 #- docker run ${IMAGE} pwd
 #- docker run ${IMAGE} ls /opt/teex
-#- docker run --mount type=bind,source=${PWD},target=${MOUNT} \
-#        -it ${IMAGE} /opt/teex/shaping/main_tool < hello.c
-- echo "Hello 16h36"
-- make
-- touch newfile.txt
+- echo "Shaping"
+-  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+   bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
+
+
+
 
 deploy:
   provider: pages
