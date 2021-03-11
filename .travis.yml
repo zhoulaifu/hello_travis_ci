@@ -2,28 +2,21 @@ language: C
 services:
 - docker
 before_install:
-#- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
 - TOKEN=$TOKEN make build_docker
 script:
-
 - echo "Shaping"
-- echo "21h55"
-#-  docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-#   /bin/bash -c "GSL='' LANG_LEX='' /opt/teex/shaping/main_tool < hello.c > hello_shape.c"
--  make shaping
-
-
-
+- echo "23h20"
+- make shaping
+- make sanitizing
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $TOKEN
+  github_token: "$TOKEN"
   keep_history: true
   on:
     branch: main
-
 env:
   global:
-  - secure: Bhc+OQOmXqfogtdP60LSq+RPBi5RmAlDL1VS8oNgwJiptIDF5UmBkEqzxjrdTWhqnS4ah6QRb8ErLh+OTfhR9o3j2blv8O+QIKkR9z0Eg36sxpebTx117TDIuPejcCp8v4+5kcGml2FVwd696qpZ1qgzidPGQkK4hfh7Eg9ZJra55StAa7cCl72DscaHeMtczaPxU2ZRugGdexKXSgP/sPK6/esGQBF4gie1UrUNhm1ibxQItF8PknP2Kvri60r2DpW+px4He6P6Jwr/0yGye8CGA2NWMXfqhjSXdNMOmiL9ncvWVkCS8wetBRVKmdTpAHiMT/otQI4l2zcAgTafW0XuO10xxVSpZwcxAgvgfXZmLFrL+MBspOzouNeRgTQIeGYbBtGp4EFaFTqaAM+j+812U+glitq5T3E+DrrPY63cweOOTqSiHAVyJ0d4ZBSh6ZQ22Ypmvbb0IjxhrBK14AJjgOYzzQ5yanMHyarVEqRXQMhkIPJLcAhDcCGPgMTFWXNafjN6QeMwl5MeS/djLmdtryY3B+u0ZLRs1Q6AMxfoi+Zw0oHvu/mU2QKguZsgDUrrrSWvm/xYpiNT51uYAxrv+5C7B2mN+y5Rr2AdKlL0nE68Epo1WWjX1DYr+Zo80jFR3OhvVqccIcJGstBl7c85Xb3T2vLdd8Ho68F8ur8=
-  -  IMAGE=test01
-  -  MOUNT=/mnt/local
+  - IMAGE=test01
+  - MOUNT=/mnt/local
+  - secure: keL498Dzey8UpyB1FABDfXFlA/hGwvr4onNxJnOMG8E+O5uMQDMmSvCNG2vDg3BZTja4h/GWFqnRbIFgDUI/qEPQfPF9TFW/9Fqfb0f+Pu8d+g9sJAeckCZWQGyJWOl2a2o67hRYjYrcVRtsKKjI75lJ5bl3sYXFhZmjO6OpLS3LBnXpnqsstApiTILVxyAKwfRV+sQpgSmhDia0Yj8xmtOZivDNEdF3o87g2R4/KacvNFXpTUAkO5mnNnea082jlC3ewwmafk6UHYoj7YzcbSBtIHwDCt4SaOTuwTWeoyVE50ek+X5b+r1SULk/nQHkBb9PfD/AenHsFeooK3G8VCLHX8LMjuWK4kadSgKWVF9NZzFzVame5G8ie/oh4F1bJzeNM7XcDjaC+mpe14Gytg9AOh5IrNv/Zp1TL46pK8nAuLNhCj9C/1b6MgNSXilwuZDK0j4whqvjhYoUtzghkiW2SBTdnY0mOSioz50li6FMQirNUeLQYqWfK0VFy5y61FAOq+fVp+EbWlfx7tjXrWU1ZVKAN/Z40RLRYRiuo32K5XIGfo97BNmIurkEMhQ3uk2UUqSzjUDP8szJjFc3kTY9LzlyBcMgAL9rfpisG0kUYLAPtoYf/piVjm6XfBaE3ZS3+hmZH1RIlO6FU1Meg42aSfbXyjThu0UeZEI8+dU=
