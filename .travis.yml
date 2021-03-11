@@ -1,6 +1,6 @@
 language: C
-services:
-- docker
+#services:
+#- docker
 #before_install:
 #- docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
 
@@ -11,6 +11,15 @@ script:
 #- docker run --mount type=bind,source=${PWD},target=${MOUNT} \
 #        -it ${IMAGE} /opt/teex/shaping/main_tool < hello.c
 - echo "Hello 14h25"
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $TOKEN
+  keep_history: true
+  on:
+    branch: main
+
 env:
   jobs:
   - IMAGE=test01
