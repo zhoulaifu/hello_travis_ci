@@ -12,6 +12,7 @@ script:
 #- docker run --mount type=bind,source=${PWD},target=${MOUNT} \
 #        -it ${IMAGE} /opt/teex/shaping/main_tool < hello.c
 - git status
+- git remote -v
 - touch try.txt && git add try.txt && git commit -m "added try.txt [ci skip]" && git push origin HEAD:main
 
 env:
