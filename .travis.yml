@@ -5,8 +5,7 @@ before_install:
 - docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
 
 script:
-- pwd
-- echo ${TOKEN}
+
 #- docker run ${IMAGE} pwd
 #- docker run ${IMAGE} ls /opt/teex
 #- docker run --mount type=bind,source=${PWD},target=${MOUNT} \
