@@ -9,6 +9,7 @@ script:
 #- docker run ${IMAGE} pwd
 #- docker run ${IMAGE} ls /opt/teex
 - echo "Shaping"
+- echo "17h07"
 - echo ${MOUNT}
 - echo ${TOKEN}
 - echo ${IMAGE}
