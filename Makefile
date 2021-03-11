@@ -1,6 +1,6 @@
 IMAGE?=test01
 MOUNT?=/mnt/local
-#TOKEN?=a1726de51c70ef109d9c73dff914261d20c796a9
+
 TOKEN?=not_working
 all:
 	echo "Hello travis ci"
@@ -33,3 +33,7 @@ run_docker:
 git:
 	git commit -a -m ".."
 	git push
+
+clean_docker:
+	docker rm  $$(docker ps -q -a)
+	docker image prune -a
