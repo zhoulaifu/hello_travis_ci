@@ -11,6 +11,8 @@ script:
 #- docker run --mount type=bind,source=${PWD},target=${MOUNT} \
 #        -it ${IMAGE} /opt/teex/shaping/main_tool < hello.c
 - echo "Hello 14h25"
+- make
+- touch newfile.txt
 
 deploy:
   provider: pages
