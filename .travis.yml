@@ -10,7 +10,7 @@ script:
 #- docker run ${IMAGE} ls /opt/teex
 #- docker run --mount type=bind,source=${PWD},target=${MOUNT} \
 #        -it ${IMAGE} /opt/teex/shaping/main_tool < hello.c
-- echo "Hello 16h33"
+- echo "Hello 16h36"
 - make
 - touch newfile.txt
 
