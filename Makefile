@@ -33,6 +33,7 @@ fuzzing:
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
 
+	chmod -R +r out/
 run_docker:
 	docker run \
 	--mount type=bind,source=${PWD},target=${MOUNT} \
