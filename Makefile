@@ -24,8 +24,11 @@ sanitizing:
 	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	afl-gcc hello_shape.c
 fuzzing:
+	mkdir -p out
+
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	bash -c "echo 'core' > /proc/sys/kernel/core_pattern"
+
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
