@@ -6,10 +6,10 @@ before_install:
 script:
 - echo "Shaping"
 - echo "11h03"
-- make debug
-#- make shaping
-#- make sanitizing
-#- make fuzzing
+#- make debug
+- make shaping
+- make sanitizing
+- make fuzzing
 deploy:
   provider: pages
   skip_cleanup: true
