@@ -5,11 +5,11 @@ before_install:
 - TOKEN=$TOKEN make build_docker
 script:
 - echo "Shaping"
-- echo "11h03"
+- echo "12h30"
 #- make debug
 - make shaping
-- make sanitizing
-- make fuzzing
+#- make sanitizing
+#- make fuzzing
 deploy:
   provider: pages
   skip_cleanup: true
