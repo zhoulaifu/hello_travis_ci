@@ -6,7 +6,8 @@ before_install:
 script:
 - echo "Shaping"
 - echo "23h20"
-- make debug#- make shaping
+- make debug
+#- make shaping
 #- make sanitizing
 #- make fuzzing
 deploy:
