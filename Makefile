@@ -17,13 +17,13 @@ shaping:
 	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	bash -c "mkdir -p in/  && tail -n +2 shape_parameters.txt > in/init.txt && rm -f shape_parameters.txt"
 
+debug:
+	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+	cat /proc/sys/kernel/core_pattern
 sanitizing:
 	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	afl-gcc hello_shape.c
 fuzzing:
-	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	sudo bash -c "echo core >/proc/sys/kernel/core_pattern"
-
 	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out"
 
