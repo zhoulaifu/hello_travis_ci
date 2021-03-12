@@ -28,7 +28,7 @@ fuzzing:
 	bash -c "echo 'core' > /proc/sys/kernel/core_pattern"
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out"
+	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
 
 run_docker:
 	docker run \
