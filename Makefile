@@ -22,6 +22,9 @@ sanitizing:
 	afl-gcc hello_shape.c
 fuzzing:
 	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+	sudo bash -c "echo core >/proc/sys/kernel/core_pattern"
+
+	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out"
 
 run_docker:
