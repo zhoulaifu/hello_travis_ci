@@ -6,7 +6,7 @@ ARG GIT_ACCESS_TOKEN
 RUN apt-get update \
          && apt-get install -y  lcov afl++ flex
 
-RUN bash -c "echo core >/proc/sys/kernel/core_pattern"
+
 #ros work dir
 ENV ROS_WS /opt/ros_ws
 ENV TEEX /opt/teex

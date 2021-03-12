@@ -5,7 +5,7 @@ before_install:
 - TOKEN=$TOKEN make build_docker
 script:
 - echo "Shaping"
-- echo "23h20"
+- echo "11h03"
 - make debug
 #- make shaping
 #- make sanitizing
