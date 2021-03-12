@@ -7,9 +7,15 @@ script:
 - echo "Shaping"
 - echo "12h30"
 #- make debug
-- make shaping
-- make sanitizing
-- make fuzzing
+- echo debugging
+- git remote -v
+- touch test04.txt
+- git add test04.txt
+- git commit -a -m "upload"
+- git push
+#- make shaping
+#- make sanitizing
+#- make fuzzing
 deploy:
   provider: pages
   skip_cleanup: true
