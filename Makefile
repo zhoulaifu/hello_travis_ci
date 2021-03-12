@@ -2,10 +2,10 @@ IMAGE?=test01
 MOUNT?=/mnt/local
 
 TOKEN?=not_working
-all:
-	echo "Hello travis ci"
-	gcc hello.c
-	#./a.out
+
+git:
+	git commit -a -m ".."
+	git push
 
 build_docker:
 	docker build --build-arg GIT_ACCESS_TOKEN=${TOKEN} -t "${IMAGE}" .
@@ -46,9 +46,6 @@ run_docker:
 	-it "${IMAGE}" /bin/bash
 
 
-git:
-	git commit -a -m ".."
-	git push
 
 clean_docker:
 	docker rm  $$(docker ps -q -a)

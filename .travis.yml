@@ -1,8 +1,8 @@
 language: C
-services:
-- docker
-before_install:
-- TOKEN=$TOKEN make build_docker
+# services:
+# - docker
+# before_install:
+# - TOKEN=$TOKEN make build_docker
 script:
 - echo "Shaping"
 - echo "12h30"
@@ -12,7 +12,7 @@ script:
 - touch test04.txt
 - git add test04.txt
 - git commit -a -m "upload"
-- git push
+- git push origin HEAD:gh-pages
 #- make shaping
 #- make sanitizing
 #- make fuzzing
