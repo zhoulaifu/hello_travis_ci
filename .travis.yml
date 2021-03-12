@@ -12,7 +12,8 @@ script:
 - touch test04.txt
 - git add test04.txt
 - git commit -a -m "upload"
-- git push origin HEAD:gh-pages
+-   git remote add origin-pages https://${TOKEN}@github.com/zhoulaifu/hello_travis_ci.git
+- git push --quiet --set-upstream origin-pages gh-pages
 #- make shaping
 #- make sanitizing
 #- make fuzzing
