@@ -33,7 +33,8 @@ fuzzing:
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	bash -c "echo core > /proc/sys/kernel/core_pattern"
 
-
+	echo "Check if core is there"
+	ls -l
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	timeout 10s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
