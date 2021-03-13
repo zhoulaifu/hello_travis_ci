@@ -23,7 +23,7 @@ deploy:
   keep_history: true
   on:
     branch: main
-  local_dir: out
+
 env:
   global:
   - IMAGE=test01
