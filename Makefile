@@ -25,13 +25,15 @@ sanitizing:
 	docker run --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	afl-gcc hello_shape.c
 
-fuzzing_change_core_pattern.old:
+fuzzing:
+	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+	bash -c "cat /proc/sys/kernel/core_pattern"
 
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	bash -c "echo 'DB_core' > /proc/sys/kernel/core_pattern"
+	bash -c "echo core > /proc/sys/kernel/core_pattern"
 
-fuzzing:
+
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	timeout 10s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
