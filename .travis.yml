@@ -9,11 +9,11 @@ script:
 #- make debug
 - echo debugging
 - git remote -v
-- touch test04.txt
-- git add test04.txt
-- git commit -a -m "upload"
--   git remote add origin-pages https://${TOKEN}@github.com/zhoulaifu/hello_travis_ci.git
-- git push --quiet --set-upstream origin-pages main
+- touch test05.txt
+#- git add test04.txt
+#- git commit -a -m "upload"
+#-   git remote add origin-pages https://${TOKEN}@github.com/zhoulaifu/hello_travis_ci.git
+#- git push --quiet --set-upstream origin-pages main
 #- make shaping
 #- make sanitizing
 #- make fuzzing
