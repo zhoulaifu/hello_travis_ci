@@ -29,7 +29,7 @@ fuzzing:
 
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	bash -c "echo 'core' > /proc/sys/kernel/core_pattern"
+	bash -c "echo 'DB_core' > /proc/sys/kernel/core_pattern"
 
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
