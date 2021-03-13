@@ -1,13 +1,20 @@
 language: C
-services:
-- docker
-before_install:
-- TOKEN=$TOKEN make build_docker
+# services:
+# - docker
+# before_install:
+# - TOKEN=$TOKEN make build_docker
 script:
 - echo "Shaping"
 - echo "12h30"
 #- make debug
-- make shaping
+- echo debugging
+- git remote -v
+- touch test04.txt
+- git add test04.txt
+- git commit -a -m "upload"
+-   git remote add origin-pages https://${TOKEN}@github.com/zhoulaifu/hello_travis_ci.git
+- git push --quiet --set-upstream origin-pages main
+#- make shaping
 #- make sanitizing
 #- make fuzzing
 deploy:
