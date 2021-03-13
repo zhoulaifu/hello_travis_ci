@@ -46,7 +46,7 @@ fuzzing:
 
 	ls -l
 
-	ls -l out/crashes/
+
 
 run_docker:
 	docker run \
