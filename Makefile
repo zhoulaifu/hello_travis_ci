@@ -33,7 +33,7 @@ fuzzing:
 
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
+	timeout 10s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	chmod -R +rx out/ && echo "DEBUGGING"
