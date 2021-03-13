@@ -36,7 +36,7 @@ fuzzing:
 	timeout 20s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	chmod -R +r out/ && echo "DEBUGGING"
+	chmod -R +rx out/ && echo "DEBUGGING"
 
 	ls -l out/
 
