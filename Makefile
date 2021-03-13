@@ -44,6 +44,8 @@ fuzzing:
 
 	pwd
 
+	whoami
+
 	ls -l
 
 
