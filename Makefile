@@ -38,7 +38,9 @@ fuzzing:
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	chmod -R +rx out/ && echo "DEBUGGING"
 
-	ls -l out/
+	pwd
+
+	ls -l
 
 	ls -l out/crashes/
 
