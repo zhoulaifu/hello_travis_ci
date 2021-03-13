@@ -28,7 +28,7 @@ sanitizing:
 fuzzing:
 
 
-	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+	#docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	bash -c "echo 'DB_core' > /proc/sys/kernel/core_pattern"
 
 
