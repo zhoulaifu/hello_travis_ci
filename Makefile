@@ -26,29 +26,26 @@ sanitizing:
 	afl-gcc hello_shape.c
 
 fuzzing:
-	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	bash -c "cat /proc/sys/kernel/core_pattern"
-
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	bash -c "echo core > /proc/sys/kernel/core_pattern"
 
-	echo "Check if core is there"
-	ls -l
 
 	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
 	timeout 10s bash -c "afl-fuzz -i in -o out -- ./a.out" || true
 
-	docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
-	chmod -R +rx out/ && echo "DEBUGGING"
+	#docker run --privileged --mount type=bind,source=${PWD},target=${MOUNT} -it "${IMAGE}" \
+	#chmod -R +rx out/ && echo "DEBUGGING"
 
-	pwd
+	#pwd
 
-	whoami
+	#whoami
 
-	ls -l
+
+
+	sudo chmod -R +rx out/
 	sudo rm core
-
+	ls -l
 
 run_docker:
 	docker run \
