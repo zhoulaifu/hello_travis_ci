@@ -47,7 +47,7 @@ fuzzing:
 	whoami
 
 	ls -l
-
+	sudo rm core
 
 
 run_docker:
